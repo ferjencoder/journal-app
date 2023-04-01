@@ -7,7 +7,9 @@ import { Navbar, Sidebar } from "../components";
 const drawerWidth = 340;
 
 export const JournalLayout = ( { children } ) => {
+
     return (
+
         <Box sx={{ display: 'flex' }}>
 
             <Navbar drawerWidth={drawerWidth} />
@@ -24,6 +26,7 @@ export const JournalLayout = ( { children } ) => {
                 {children}
 
             </Box>
+
         </Box>
     )
 }
