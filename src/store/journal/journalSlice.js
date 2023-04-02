@@ -24,6 +24,7 @@ export const journalSlice = createSlice( {
 
         setActiveNote: ( state, action ) => {
             state.active = action.payload;
+            state.messageSaved = '';
         },
 
         setNotes: ( state, action ) => {
@@ -32,7 +33,7 @@ export const journalSlice = createSlice( {
 
         setSaving: ( state ) => {
             state.isSaving = true;
-            //TODO: msj error..
+            state.messageSaved = '';
         },
 
         updateNote: ( state, action ) => {
@@ -43,21 +44,37 @@ export const journalSlice = createSlice( {
 
                 return note;
             } );
-            //TODO: mostrar msj de actualización
+
+            state.messageSaved = `${action.payload.title}, actualizada correctamente.`;
+        },
+
+        setPhotosToActiveNote: ( state, action ) => {
+            state.active.imageUrls = [ ...state.active.imageUrls, ...action.payload ];
+            state.isSaving = false;
+        },
+
+        clearNotesLogout: ( state ) => {
+            state.isSaving = false;
+            state.messageSaved = '';
+            state.notes = [];
+            state.active = null;
         },
 
         deleteNoteById: ( state, action ) => {
-
+            state.active = null;
+            state.notes = state.notes.filter( note => note.id !== action.payload );
         },
     }
 } );
 
 export const {
     addNewEmptyNote,
+    clearNotesLogout,
     deleteNoteById,
     savingNewNote,
     setActiveNote,
     setNotes,
+    setPhotosToActiveNote,
     setSaving,
     updateNote,
 } = journalSlice.actions;
