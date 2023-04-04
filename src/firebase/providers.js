@@ -2,7 +2,6 @@
 
 import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 
-import { Password } from "@mui/icons-material";
 import { FirebaseAuth } from "./config";
 
 
@@ -13,7 +12,6 @@ export const signInWithGoogle = async () => {
     try {
 
         const result = await signInWithPopup( FirebaseAuth, googleProvider );
-        // const credentials = GoogleAuthProvider.credentialFromResult( result );
 
         const { displayName, email, photoURL, uid } = result.user;
 
@@ -25,7 +23,6 @@ export const signInWithGoogle = async () => {
 
     } catch ( error ) {
 
-        const errorCode = error.code;
         const errorMessage = error.message;
 
         return {

@@ -36,9 +36,9 @@ export const NoteView = () => {
     useEffect( () => {
 
         if ( messageSaved.length > 0 ) {
-            Swal.fire( 'Nota actualizada', messageSaved, 'success' )
+            Swal.fire( 'Nota actualizada', messageSaved, 'success' );
         }
-        // dispatch( setActiveNote( formState ) );
+
     }, [ messageSaved ] )
 
     const onSaveNote = () => {
@@ -54,6 +54,7 @@ export const NoteView = () => {
 
     const onDeleteNote = () => {
         dispatch( startDeletingNote() );
+        Swal.fire( 'Nota eliminada', messageSaved, 'success' );
     };
 
     return (

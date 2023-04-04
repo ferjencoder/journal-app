@@ -13,6 +13,7 @@ export const JournalLayout = ( { children } ) => {
         <Box sx={{ display: 'flex' }} className="animate__animated animate__fadeIn animate__faster">
 
             <Navbar drawerWidth={drawerWidth} />
+            {/* <NavBarTwo /> */}
 
             <Sidebar drawerWidth={drawerWidth} />
 
@@ -29,6 +30,4 @@ export const JournalLayout = ( { children } ) => {
 
         </Box>
     )
-}
-
-
+};

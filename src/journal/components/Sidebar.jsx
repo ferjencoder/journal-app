@@ -44,6 +44,4 @@ export const Sidebar = ( { drawerWidth = 240 } ) => {
             </Drawer>
         </Box>
     )
-}
-
-
+};
